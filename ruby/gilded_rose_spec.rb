@@ -9,9 +9,12 @@ describe GildedRose do
   let(:item) { build_item(name: "Test Item", sell_in: 1, quality: 1) }
   let(:items) { [item] }
 
+  subject { GildedRose.new(items) }
+
   describe "#update_quality" do
+    before { subject.update_quality }
+
     it "does not change the name" do
-      GildedRose.new(items).update_quality()
       expect(items[0].name).to eq "Test Item"
     end
   end
